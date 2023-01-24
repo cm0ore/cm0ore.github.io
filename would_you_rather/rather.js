@@ -56,6 +56,6 @@ var questions=[
 
 function new_question() {
     var random_number=Math.floor(Math.random()*(questions.length));
-    document.getElementById("question").innerHTML=questions[random_number];
+    document.getElementById("tagline").innerHTML=questions[random_number];
 
 }
