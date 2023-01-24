@@ -1,3 +1,4 @@
+
 var context;
 var x=[250, 100, 50, 75, 200];
 var y=[50, 100, 60, 15, 200];
@@ -15,6 +16,7 @@ function init()
 {
   //context= myCanvas.getContext('2d');
   //setInterval(draw,100);
+  initimages();
   initpositions();
   initpictures();
   setInterval(drawpictures,100);
@@ -75,6 +77,39 @@ var divdx=[]
 var divdy=[]
 var box=[]
 var radius=[];
+
+function initimages() {
+    // $images = glob('/path/to/dir/*.{jpg,png,gif}');
+    // console.log($images)
+    // for (i=0;i<ids.length;i++){
+    //     console.log(ids[i]);
+    // }
+    var folder = "https://github.com/cm0ore/cm0ore.github.io/tree/master/move_images/";
+
+    // $.ajax({
+    //     url : folder,
+    //     success: function (data) {
+    //         $(data).find("a").attr("href", function (i, val) {
+    //             if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+    //                 $("body").append( "<img src='"+ folder + val +"'>" );
+    //             } 
+    //         });
+    //     }
+    // });
+    var data
+    $.ajax({
+      type: "GET",
+      url: folder,
+      // data:data,
+      async:true,
+      dataType : 'jsonp',   //you may use jsonp for cross origin request
+      crossDomain:true,
+      success: function(data, status, xhr) {
+        alert(xhr.getResponseHeader('Location'));
+      }
+    });
+    console.log(data)
+}
 
 function initpositions () {
     max_x=getWidth()
